@@ -62,6 +62,13 @@ resource "aws_route_table" "private-route-table" {
   tags   = var.common_tags
 }
 
+# Create Elastic IP for NAT Gateway
+resource "aws_eip" "nat-gw-eip" {
+  domain = "vpc"
+
+  tags = var.common_tags
+}
+
 # Associate public subnet 1 with the public route table
 resource "aws_route_table_association" "public-route-1-association" {
   route_table_id = aws_route_table.public-route-table.id
