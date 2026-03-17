@@ -112,9 +112,9 @@ resource "aws_nat_gateway" "nat-gw" {
 
   tags = var.common_tags
 
-  depends_on = [
-    aws_eip.nat-gw-eip
-  ]
+  #depends_on = [
+  #  aws_eip.nat-gw-eip
+  #]
 }
 
 # Create a route in the private route table to route traffic through the NAT Gateway
